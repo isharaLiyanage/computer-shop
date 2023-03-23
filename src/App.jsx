@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Admin from "./Pages/Admin/Admin";
 
-import Auth from "./Pages/auth";
+import Auth from "./Pages/Auth";
 import Checkout from "./Pages/Checkout";
 import Home from "./Pages/Home";
 import NoPage from "./Pages/NoPage";
