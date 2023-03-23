@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BaseUrl = "http://localhost:5000";
+const BaseUrl = "https://fair-pullover-eel.cyclic.app/";
 
 export const publicSend = axios.create({
   baseURL: BaseUrl,
