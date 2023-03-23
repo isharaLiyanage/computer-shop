@@ -1,6 +1,6 @@
 import React from "react";
 
-import Processors from "../../assets/img/Processer.png";
+import Processors from "../../assets/img/processer.png";
 import keyboard from "../../assets/img/keyboard.png";
 import laptop from "../../assets/img/laptop.png";
 import gpu from "../../assets/img/gpu.png";
