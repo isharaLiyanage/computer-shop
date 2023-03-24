@@ -49,7 +49,6 @@ function NavBar() {
             <div className="">
               <div className={username ? "hidden" : "block"}>
                 <Link to="/auth">
-                  {" "}
                   <p>SIGN IN</p>
                 </Link>
               </div>
