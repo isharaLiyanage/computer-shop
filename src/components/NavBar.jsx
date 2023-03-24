@@ -14,6 +14,7 @@ function NavBar() {
   const [searchValue, setSearchValue] = useState(false);
 
   const quantity = useSelector((state) => state.Cart.quantity);
+  const isAdmin = useSelector((state) => state.User?.Auth.isAdmin);
   const username = useSelector((state) => state.User.Auth?.username);
   const id = useSelector((state) => state.User.Auth?._id);
 
@@ -49,14 +50,24 @@ function NavBar() {
             <div className="">
               <div className={username ? "hidden" : "block"}>
                 <Link to="/auth">
+                  {" "}
                   <p>SIGN IN</p>
                 </Link>
               </div>
               <Link to={`/user/${id}`}>
                 <h3 className={username ? "block" : "hidden"}>
                   {username ? username : ""}
-                </h3>{" "}
+                </h3>
               </Link>
+              {isAdmin ? (
+                <Link to={`/Admin`}>
+                  <h3 className={username ? "block text-blue-700" : "hidden"}>
+                    Admin panel
+                  </h3>
+                </Link>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <Link to={`/user/${id}`}>
