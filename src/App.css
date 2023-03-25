@@ -43,7 +43,7 @@ body {
 }
 .Auth {
   color: #ffffff;
-  width: 600px;
+  width: 100%;
   padding: 60px;
   background: url(./assets/luca-bravo-O453M2Liufs-unsplash.jpg);
   background-blend-mode: darken;
