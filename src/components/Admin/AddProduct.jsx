@@ -154,7 +154,7 @@ function AddProduct() {
   };
 
   return (
-    <div className=" p-8 bg-[#DFDFDF]   h-screen ">
+    <div className=" p-8 bg-[#DFDFDF]   ">
       <form onSubmit={handelSubmit}>
         <div className="flex justify-between w-80 py-1">
           <p>Name :</p>{" "}
