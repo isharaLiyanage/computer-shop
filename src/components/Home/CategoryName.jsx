@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 function CategoryName() {
   const Category = [
-    { Name: "CPUs & Processors", id: "1" },
+    { Name: "Processors", id: "1" },
     { Name: "Graphics Card", id: "2" },
-    { Name: "CPUs & Processors", id: "3" },
-    { Name: " Memory & RAM", id: "4" },
+    { Name: "Laptops", id: "4" },
+    { Name: "Memory & RAM", id: "4" },
     { Name: "Motherboards", id: "5" },
     { Name: "Headphones", id: "6" },
     { Name: "Keyboards", id: "7" },
-    { Name: " Speakers & Sound Systems", id: "8" },
+    { Name: "Speakers & Sound Systems", id: "8" },
     { Name: "Cables & Adapters", id: "9" },
     { Name: "Networking Devices", id: "10" },
   ];
