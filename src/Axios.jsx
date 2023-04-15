@@ -18,5 +18,5 @@ console.log(TOKEN);
 
 export const UserSend = axios.create({
   baseURL: BaseUrl,
-  Headers: { token: `Bearer ${TOKEN}` },
+  headers: { token: `Bearer ${TOKEN}` },
 });

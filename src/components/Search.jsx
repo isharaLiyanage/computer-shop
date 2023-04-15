@@ -21,7 +21,7 @@ function Search({ value }) {
   return (
     <div>
       {" "}
-      <table className=" bg-[#ceccccd5] text-black p-5 w-full">
+      <table className=" bg-[#ffffffd5] backdrop-blur-sm text-black p-5 w-full">
         <tbody>
           <tr>
             <th>Name</th>

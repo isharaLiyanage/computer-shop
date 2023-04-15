@@ -63,6 +63,7 @@ function Checkout() {
           userId,
           product: Cart.map((product) => ({
             productId: product.productId,
+            productTitle: product.itemTitle,
             quantity: product.itemQuantity,
           })),
           amount: total,

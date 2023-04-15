@@ -175,6 +175,7 @@ function User() {
     e.preventDefault();
     dispatch(Logout());
   };
+
   return (
     <div>
       <div className="bg-image h-64">
@@ -238,11 +239,26 @@ function User() {
                       </div>
                     ))}
                   </td>
-                  <td> {product.title}</td>
+                  <td>
+                    {product.product.map((item) => (
+                      <div key={item.productId}>
+                        <Link to={`/products/${item.productId}`}>
+                          {" "}
+                          <p className=" font-bold" key={item.productId}>
+                            {item.productTitle}
+                          </p>
+                        </Link>
+                      </div>
+                    ))}
+                  </td>
                   <td>${product.amount}</td>
 
                   <td>
-                    <p className=" px-2 animate-pulse bg-green-600 mr-1 text-white">
+                    <p
+                      className={`${
+                        product.status === "conform" ? "" : "animate-pulse"
+                      } px-2  bg-green-600 mr-1 text-white`}
+                    >
                       {product.status}
                     </p>
                   </td>

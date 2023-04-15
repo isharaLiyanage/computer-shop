@@ -5,15 +5,18 @@ import RecentUser from "./RecentUser";
 function Dashboard({ Users }) {
   const [usersCount, setUsersCount] = useState();
   const [productsCount, setProductsCount] = useState();
+  const [orderCount, setOrderCount] = useState();
 
   useEffect(() => {
     async function fetchData() {
       try {
         const UserRes = await UserSend.get("/api/users/stats");
         const ProductsRes = await UserSend.get("/api/products/stats");
+        const OrderRes = await UserSend.get("/api/orders/stats");
 
         setUsersCount(UserRes.data);
         setProductsCount(ProductsRes.data);
+        setOrderCount(OrderRes.data);
       } catch (error) {
         console.error(error);
       }
@@ -40,8 +43,8 @@ function Dashboard({ Users }) {
         </div>
         <div className=" w-3/12 h-24 flex justify-center items-center bg-white rounded-md">
           <div className=" text-center">
-            <p>06</p>
-            <h3>Total Users</h3>
+            <p>{orderCount}</p>
+            <h3>Total Orders</h3>
           </div>
         </div>
       </div>

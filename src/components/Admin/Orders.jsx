@@ -4,6 +4,9 @@ import { UserSend } from "../../Axios";
 
 function Orders() {
   const [orders, setOrders] = useState();
+  const [ordersTitle, setOrdersTitle] = useState([]);
+  const [change, setChange] = useState();
+
   const userId = useSelector((state) => state.User?.Auth._id);
 
   useEffect(() => {
@@ -19,7 +22,22 @@ function Orders() {
 
     fetchData();
   }, []);
+  const handelConform = ({ id }) => {
+    console.log(id);
+    async function fetchData() {
+      try {
+        const res = await UserSend.put(`/api/orders/${id}`, {
+          status: "conform",
+        });
+        setChange(res);
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
+    fetchData();
+  };
+  console.log(orders);
   return (
     <div className=" pt-8 m-auto bg-[#DFDFDF]   h-screen">
       {orders ? (
@@ -27,7 +45,9 @@ function Orders() {
           <thead>
             <tr>
               <th>product Id</th>
-              <th>Title</th>
+              <th>title</th>
+
+              <th>Quantity</th>
               <th>Price</th>
 
               <th>Actions</th>
@@ -39,15 +59,42 @@ function Orders() {
                 <td>
                   {product.product.map((item) => (
                     <div>
-                      <p key={item.productId}>{item.productId}</p>
+                      <p key={item.productId}>{item.productId} </p>
                     </div>
                   ))}
                 </td>
-                <td>{product.title}</td>
+                <td>
+                  {product.product.map((item) => (
+                    <div>
+                      <p className=" text-center" key={item.productId}>
+                        <strong>{item.productTitle}</strong>
+                      </p>
+                    </div>
+                  ))}
+                </td>
+                <td>
+                  {product.product.map((item) => (
+                    <div>
+                      <p className=" text-center" key={item.productId}>
+                        <strong>{item.quantity}</strong>
+                      </p>
+                    </div>
+                  ))}
+                </td>
+
                 <td>${product.amount}</td>
 
                 <td>
-                  <button className=" px-2 bg-green-600 mr-1 text-white">
+                  <button
+                    className={
+                      product.status === "conform"
+                        ? " px-2 bg-green-600  mr-1 text-green-600 "
+                        : " px-2 bg-green-600 mr-1 text-white"
+                    }
+                    // className=" px-2 bg-green-600 mr-1 text-white"
+                    // onClick={handelConform({ id: product._id })}
+                    onClick={() => handelConform({ id: product._id })}
+                  >
                     Conform
                   </button>
                 </td>
